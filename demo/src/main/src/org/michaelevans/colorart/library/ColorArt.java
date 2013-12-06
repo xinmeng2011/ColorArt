@@ -20,8 +20,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.Log;
 
-import org.apache.commons.collections.bag.HashBag;
-
+import org.apache.commons.collections4.bag.HashBag;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -161,7 +160,7 @@ public class ColorArt {
             if (mPrimaryColor == null && isContrastingColor(currentColor, mBackgroundColor)) {
                 mPrimaryColor = currentColor;
             } else if (mSecondaryColor == null) {
-                if (!isDistinctColor(mPrimaryColor, currentColor) ||
+                if (!(mPrimaryColor!=null &&isDistinctColor(mPrimaryColor, currentColor))||
                         !isContrastingColor(currentColor, mBackgroundColor)) {
                     continue;
                 }
